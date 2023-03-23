@@ -1,4 +1,6 @@
 from rest_framework import serializers
+from women.models import Women
+
 
 class WomenSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=255)
@@ -7,3 +9,6 @@ class WomenSerializer(serializers.Serializer):
     time_update = serializers.DateTimeField(read_only=True)
     is_published = serializers.BooleanField(default=True)
     cat_id = serializers.IntegerField()
+
+    def create(self, validated_data):
+        return Women.objects.create(**validated_data)
