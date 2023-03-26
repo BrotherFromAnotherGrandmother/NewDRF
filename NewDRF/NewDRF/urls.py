@@ -19,6 +19,8 @@ from women.views import WomenViewSet
 from rest_framework import routers
 
 router = routers.SimpleRouter()
+router.register(r'women', WomenViewSet)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
