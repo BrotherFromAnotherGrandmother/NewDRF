@@ -8,6 +8,6 @@ from rest_framework.views import APIView
 from .models import Women
 from .serializers import WomenSerializer
 
-class WomenViewSet(viewsets.ModelViewSet):
+class WomenViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Women.objects.all()
     serializer_class = WomenSerializer
