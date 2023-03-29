@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import GenericViewSet
 
-from .models import Women
+from .models import Women, Category
 from .serializers import WomenSerializer
 
 class WomenViewSet(mixins.CreateModelMixin,
@@ -21,3 +21,7 @@ class WomenViewSet(mixins.CreateModelMixin,
 
 
     @action(methods = ['get'], detail = False)
+    def category(self, request):
+        categories = Category.objects.all()
+        return Response({'Categories': [c.name for c in categories]})
+
