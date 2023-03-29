@@ -20,8 +20,8 @@ class WomenViewSet(mixins.CreateModelMixin,
     serializer_class = WomenSerializer
 
 
-    @action(methods = ['get'], detail = False)
-    def category(self, request):
-        categories = Category.objects.all()
-        return Response({'Categories': [c.name for c in categories]})
+    @action(methods = ['get'], detail = True)
+    def category(self, request, pk = None):
+        categories = Category.objects.get(pk=pk)
+        return Response({'Categories': [categories.name]})
 
