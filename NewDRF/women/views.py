@@ -9,23 +9,3 @@ from rest_framework.viewsets import GenericViewSet
 
 from .models import Women, Category
 from .serializers import WomenSerializer
-
-class WomenViewSet(mixins.CreateModelMixin,
-                   mixins.RetrieveModelMixin,
-                   mixins.UpdateModelMixin,
-                   mixins.DestroyModelMixin,
-                   mixins.ListModelMixin,
-                   GenericViewSet):
-    serializer_class = WomenSerializer
-
-    def get_queryset(self):
-        pk = self.kwargs.get("pk")
-        if not pk:
-            return Women.objects.all()[:3]
-        return Women.objects.filter(pk=pk)
-
-    @action(methods = ['get'], detail = True)
-    def category(self, request, pk = None):
-        categories = Category.objects.get(pk=pk)
-        return Response({'Categories': [categories.name]})
-
