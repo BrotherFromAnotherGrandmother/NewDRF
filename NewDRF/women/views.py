@@ -19,6 +19,10 @@ class WomenViewSet(mixins.CreateModelMixin,
     queryset = Women.objects.all()
     serializer_class = WomenSerializer
 
+    def get_queryset(self):
+        return Women.objects.all()[:3]
+
+
 
     @action(methods = ['get'], detail = True)
     def category(self, request, pk = None):
