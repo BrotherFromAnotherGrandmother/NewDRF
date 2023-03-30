@@ -19,7 +19,7 @@ from women.views import WomenViewSet
 from rest_framework import routers
 from women.routers import CustomReadOnlyRouter
 
-router = routers.DefaultRouter()
+router = CustomReadOnlyRouter()
 router.register(r'women', WomenViewSet, basename='women')
 
 
