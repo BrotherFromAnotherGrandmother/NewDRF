@@ -3,7 +3,7 @@ from rest_framework import generics, viewsets, mixins
 
 # Create your views here.
 from rest_framework.decorators import action
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import GenericViewSet
@@ -24,3 +24,4 @@ class WomenAPIUpdate(generics.RetrieveUpdateAPIView):
 class WomenAPIDestroy(generics.RetrieveDestroyAPIView):
     queryset = Women.objects.all()
     serializer_class = WomenSerializer
+    permission_classes = (IsAdminUser, )
