@@ -16,7 +16,6 @@ class WomenViewSet(mixins.CreateModelMixin,
                    mixins.DestroyModelMixin,
                    mixins.ListModelMixin,
                    GenericViewSet):
-    queryset = Women.objects.all()
     serializer_class = WomenSerializer
 
     def get_queryset(self):

@@ -19,7 +19,7 @@ from women.views import WomenViewSet
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register(r'women', WomenViewSet)
+router.register(r'women', WomenViewSet, basename='women')
 
 
 urlpatterns = [
