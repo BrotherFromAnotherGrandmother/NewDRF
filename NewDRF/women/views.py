@@ -19,9 +19,10 @@ class WomenViewSet(mixins.CreateModelMixin,
     serializer_class = WomenSerializer
 
     def get_queryset(self):
-        return Women.objects.all()[:3]
-
-
+        pk = self.kwargs.get("pk")
+        if not pk:
+            return Women.objects.all()[:3]
+        return Women.objects.filter(pk=pk)
 
     @action(methods = ['get'], detail = True)
     def category(self, request, pk = None):
