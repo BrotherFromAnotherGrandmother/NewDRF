@@ -15,9 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from women.views import WomenViewSet
 from rest_framework import routers
-from women.routers import CustomReadOnlyRouter
 
 router = CustomReadOnlyRouter()
 router.register(r'women', WomenViewSet, basename='women')
