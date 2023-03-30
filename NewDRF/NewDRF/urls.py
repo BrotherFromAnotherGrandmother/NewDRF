@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from women.views import WomenViewSet
 from rest_framework import routers
+from women.routers import CustomReadOnlyRouter
 
 router = routers.DefaultRouter()
 router.register(r'women', WomenViewSet, basename='women')
