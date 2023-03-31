@@ -1,6 +1,7 @@
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
 from .models import Women, Category
+from .permissions import IsAdminOrReadOnly
 from .serializers import WomenSerializer
 
 
@@ -18,4 +19,4 @@ class WomenAPIUpdate(generics.RetrieveUpdateAPIView):
 class WomenAPIDestroy(generics.RetrieveDestroyAPIView):
     queryset = Women.objects.all()
     serializer_class = WomenSerializer
-    permission_classes = (IsAdminUser,)
+    permission_classes = (IsAdminOrReadOnly,)
