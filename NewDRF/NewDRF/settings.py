@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'women.apps.WomenConfig',
     'rest_framework',
-    'rest-framework.authoken',
+    'rest_framework.authoken',
     'djoser',
 ]
 
