@@ -4,6 +4,7 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticate
 from .models import Women, Category
 from .permissions import IsAdminOrReadOnly, IsOwnerOrReadOnly
 from .serializers import WomenSerializer
+from paginations import WomenApiListPagination
 
 
 class WomenAPIList(generics.ListCreateAPIView):
@@ -16,6 +17,7 @@ class WomenAPIUpdate(generics.RetrieveUpdateAPIView):
     queryset = Women.objects.all()
     serializer_class = WomenSerializer
     permission_classes = (IsAuthenticated, )
+    pagination_class = WomenApiListPagination
 
 
 class WomenAPIDestroy(generics.RetrieveDestroyAPIView):
